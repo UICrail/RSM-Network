@@ -8,12 +8,56 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:netw="https://cdm.ovh/rsm/network/netw#"
+     xmlns:pavo="https://cdm.ovh/rsm/partsAndViews/pavo#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:rsmt="https://cdm.ovh/rsm/time/time#">
+     xmlns:rsmt="https://cdm.ovh/rsm/time/time#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:stus="https://cdm.ovh/rsm/schemes/status#">
     <owl:Ontology rdf:about="https://cdm.ovh/rsm/network/netw">
         <owl:versionIRI rdf:resource="https://cdm.ovh/rsm/network/netw/0.1"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl"/>
+        <owl:imports rdf:resource="https://cdm.ovh/rsm/partsAndViews/pavo"/>
         <owl:imports rdf:resource="https://cdm.ovh/rsm/time/time"/>
+        <dc:creator>Airy Magnien</dc:creator>
+        <dc:description xml:lang="en">Ontology for railway networks, their management, and their layout</dc:description>
+        <dc:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/"/>
+        <dc:title xml:lang="en">Railway network ontology</dc:title>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/license"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
     
 
 
@@ -28,27 +72,15 @@
     
 
 
-    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasMember -->
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasSetting -->
 
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasMember"/>
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasSetting"/>
     
 
 
-    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart -->
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isSettingFor -->
 
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasParticipant -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasParticipant"/>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasProperPart -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasProperPart"/>
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isSettingFor"/>
     
 
 
@@ -58,71 +90,25 @@
     
 
 
-    <!-- https://cdm.ovh/rsm/network/netw#concernsNetwork -->
-
-    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#concernsNetwork">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkManagement"/>
-        <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#RailwayNetwork"/>
-        <rdfs:label xml:lang="en">concerns network</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://cdm.ovh/rsm/network/netw#containsEntity -->
 
     <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#containsEntity">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasProperPart"/>
-        <rdfs:subPropertyOf rdf:resource="https://cdm.ovh/rsm/network/netw#containsEntityTransitive"/>
         <owl:inverseOf rdf:resource="https://cdm.ovh/rsm/network/netw#isContainedIn"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
-        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#ContainingEntity"/>
-        <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#NetEntity"/>
         <rdfs:comment xml:lang="en">Refers to entities that are proper parts of the containing entity. &apos;Proper&apos; entails that the property is irreflexive, and it is characterized as such in this version of the ontology. As container entities can contain other containers, use the transitive property closure to find all entities contained, directly or indirectly, in a container.</rdfs:comment>
         <rdfs:label>contains entity</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://cdm.ovh/rsm/network/netw#containsEntityTransitive -->
+    <!-- https://cdm.ovh/rsm/network/netw#hasLayout -->
 
-    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#containsEntityTransitive">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#ContainingEntity"/>
-        <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#NetEntity"/>
-        <rdfs:comment xml:lang="en">use for retrieving all entities contained, directly or indirectly, in a container</rdfs:comment>
-        <rdfs:label>contains entity (transitive)</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://cdm.ovh/rsm/network/netw#definedByCollection -->
-
-    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#definedByCollection">
-        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#SubNetwork"/>
-        <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#NetEntityCollection"/>
-        <rdfs:label xml:lang="en">defined by collection</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://cdm.ovh/rsm/network/netw#hasInfrastructureManager -->
-
-    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#hasInfrastructureManager">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkManagement"/>
-        <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#InfrastructureManager"/>
-        <rdfs:label xml:lang="en">has Infrastructure Manager</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://cdm.ovh/rsm/network/netw#hasSelectionCriterion -->
-
-    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#hasSelectionCriterion">
-        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#NetEntityCollection"/>
-        <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#SelectionCriterion"/>
-        <rdfs:label xml:lang="en">has selection criterion</rdfs:label>
+    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#hasLayout">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasSetting"/>
+        <owl:inverseOf rdf:resource="https://cdm.ovh/rsm/network/netw#isLayoutFor"/>
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#RailwayNetwork"/>
+        <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkLayout"/>
+        <rdfs:label xml:lang="en">has layout</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -130,42 +116,9 @@
     <!-- https://cdm.ovh/rsm/network/netw#hasSubNetwork -->
 
     <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#hasSubNetwork">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart"/>
         <owl:inverseOf rdf:resource="https://cdm.ovh/rsm/network/netw#isSubNetworkOf"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://cdm.ovh/rsm/network/netw#ContainingEntity"/>
-                    <rdf:Description rdf:about="https://cdm.ovh/rsm/network/netw#SubNetwork"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#SubNetwork"/>
         <rdfs:comment xml:lang="en">Links an infrastructure artefact (network or sub-network) to its sub-networks.</rdfs:comment>
         <rdfs:label xml:lang="en">has sub network</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://cdm.ovh/rsm/network/netw#hasTopology -->
-
-    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#hasTopology">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#satisfies"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkLayout"/>
-        <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkTopology"/>
-        <rdfs:label xml:lang="en">has topology</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://cdm.ovh/rsm/network/netw#involvesNetwork -->
-
-    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#involvesNetwork">
-        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasParticipant"/>
-        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkLayout"/>
-        <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#RailwayNetwork"/>
-        <rdfs:label>involvesNetwork</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -188,6 +141,43 @@
     
 
 
+    <!-- https://cdm.ovh/rsm/network/netw#isLayoutFor -->
+
+    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#isLayoutFor">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isSettingFor"/>
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkLayout"/>
+        <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#RailwayNetwork"/>
+        <rdfs:label>is layout for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://cdm.ovh/rsm/network/netw#isManagedBy -->
+
+    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#isManagedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasSetting"/>
+        <owl:inverseOf rdf:resource="https://cdm.ovh/rsm/network/netw#isManagementFor"/>
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkManagement"/>
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#RailwayNetwork"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialAgent"/>
+        <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkManagement"/>
+        <rdfs:comment xml:lang="en">refers to the management situation (at a moment in time)</rdfs:comment>
+        <rdfs:label xml:lang="en">is managed by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://cdm.ovh/rsm/network/netw#isManagementFor -->
+
+    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#isManagementFor">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isSettingFor"/>
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkManagement"/>
+        <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#RailwayNetwork"/>
+        <rdfs:label xml:lang="en">is management for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://cdm.ovh/rsm/network/netw#isSubNetworkOf -->
 
     <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#isSubNetworkOf">
@@ -196,19 +186,15 @@
     
 
 
-    <!-- https://cdm.ovh/rsm/network/netw#selectedFromNetwork -->
+    <!-- https://cdm.ovh/rsm/network/netw#satisfiesTopology -->
 
-    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#selectedFromNetwork">
-        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#NetEntityCollection"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://cdm.ovh/rsm/network/netw#ContainingEntity"/>
-                    <rdf:Description rdf:about="https://cdm.ovh/rsm/network/netw#SubNetwork"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
-        <rdfs:label xml:lang="en">selected from network</rdfs:label>
+    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#satisfiesTopology">
+        <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#satisfies"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkLayout"/>
+        <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkTopology"/>
+        <rdfs:comment xml:lang="en">a subproperty of dul:satisfies; links a situation to a description.</rdfs:comment>
+        <rdfs:label xml:lang="en">satisfies topology</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -219,6 +205,17 @@
         <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkTopology"/>
         <rdfs:range rdf:resource="https://cdm.ovh/rsm/network/netw#TopologyGraph"/>
         <rdfs:label xml:lang="en">serialized as</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://cdm.ovh/rsm/network/netw#status -->
+
+    <owl:ObjectProperty rdf:about="https://cdm.ovh/rsm/network/netw#status">
+        <rdfs:domain rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkLayout"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept"/>
+        <rdfs:comment xml:lang="en">concept (planned, actual...) to be borrowed from the scheme in status.ttl</rdfs:comment>
+        <rdfs:label xml:lang="en">status</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -258,9 +255,9 @@
 
     <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent -->
 
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent">
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object"/>
-    </owl:Class>
+    </rdf:Description>
     
 
 
@@ -298,9 +295,9 @@
 
     <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection -->
 
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection">
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObject"/>
-    </owl:Class>
+    </rdf:Description>
     
 
 
@@ -330,9 +327,9 @@
 
     <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept -->
 
-    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept">
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObject"/>
-    </rdf:Description>
+    </owl:Class>
     
 
 
@@ -370,9 +367,9 @@
 
     <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedArtifact -->
 
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedArtifact">
+    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedArtifact">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalArtifact"/>
-    </owl:Class>
+    </rdf:Description>
     
 
 
@@ -863,56 +860,11 @@
     
 
 
-    <!-- https://cdm.ovh/rsm/network/netw#ContainingEntity -->
-
-    <owl:Class rdf:about="https://cdm.ovh/rsm/network/netw#ContainingEntity">
-        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/network/netw#NetEntity"/>
-        <rdfs:comment xml:lang="en">A NetEntity that may contain other net entities, to build an &apos;authoritative&apos; breakdown of net entities. The way the breakdown is defined (by area first, or by subsystem first...) is left to the data owner.</rdfs:comment>
-        <rdfs:label xml:lang="en">Containing entity</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://cdm.ovh/rsm/network/netw#InfrastructureManager -->
-
-    <owl:Class rdf:about="https://cdm.ovh/rsm/network/netw#InfrastructureManager">
-        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/network/netw#LegalEntity"/>
-        <rdfs:label xml:lang="en">Infrastructure manager</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://cdm.ovh/rsm/network/netw#LegalEntity -->
-
-    <owl:Class rdf:about="https://cdm.ovh/rsm/network/netw#LegalEntity">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialAgent"/>
-        <rdfs:comment xml:lang="en">Provisional. Ultimately, should reference some other module or ontology.</rdfs:comment>
-    </owl:Class>
-    
-
-
     <!-- https://cdm.ovh/rsm/network/netw#NetEntity -->
 
     <owl:Class rdf:about="https://cdm.ovh/rsm/network/netw#NetEntity">
-        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/network/netw#RailwayInfrastructureArtefact"/>
-        <owl:disjointWith rdf:resource="https://cdm.ovh/rsm/network/netw#SubNetwork"/>
+        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/partsAndViews/pavo#AssetEntity"/>
         <rdfs:label xml:lang="en">Net entity</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://cdm.ovh/rsm/network/netw#NetEntityCollection -->
-
-    <owl:Class rdf:about="https://cdm.ovh/rsm/network/netw#NetEntityCollection">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Collection"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasMember"/>
-                <owl:allValuesFrom rdf:resource="https://cdm.ovh/rsm/network/netw#NetEntity"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">A collection of net entities, typically selected from one or more railway networks, and possibly used to define a sub-network. Collection membership (using dul:hasMember) is user-defined, and has no formal relationship with netw:containsEntity.</rdfs:comment>
-        <rdfs:label>Net Entity collection</rdfs:label>
     </owl:Class>
     
 
@@ -923,7 +875,7 @@
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://cdm.ovh/rsm/network/netw#hasTopology"/>
+                <owl:onProperty rdf:resource="https://cdm.ovh/rsm/network/netw#satisfiesTopology"/>
                 <owl:someValuesFrom rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkTopology"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -964,58 +916,12 @@
     
 
 
-    <!-- https://cdm.ovh/rsm/network/netw#ObservedNetworkLayout -->
-
-    <owl:Class rdf:about="https://cdm.ovh/rsm/network/netw#ObservedNetworkLayout">
-        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkLayout"/>
-        <rdfs:label>Observed network layout</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://cdm.ovh/rsm/network/netw#PlannedNetworkLayout -->
-
-    <owl:Class rdf:about="https://cdm.ovh/rsm/network/netw#PlannedNetworkLayout">
-        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/network/netw#NetworkLayout"/>
-        <rdfs:label>Planned network layout</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://cdm.ovh/rsm/network/netw#RailwayInfrastructureArtefact -->
-
-    <owl:Class rdf:about="https://cdm.ovh/rsm/network/netw#RailwayInfrastructureArtefact">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#DesignedArtifact"/>
-        <rdfs:label xml:lang="en">Railway infrastructure artefact</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- https://cdm.ovh/rsm/network/netw#RailwayNetwork -->
 
     <owl:Class rdf:about="https://cdm.ovh/rsm/network/netw#RailwayNetwork">
-        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/network/netw#ContainingEntity"/>
+        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/partsAndViews/pavo#ContainerEntity"/>
         <rdfs:comment xml:lang="en">Class of all material (tracks, signals, stations...) and immaterial (speed restrictions, ...) assets constituting a network.</rdfs:comment>
         <rdfs:label xml:lang="en">Railway network</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://cdm.ovh/rsm/network/netw#SelectionCriterion -->
-
-    <owl:Class rdf:about="https://cdm.ovh/rsm/network/netw#SelectionCriterion">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"/>
-        <rdfs:comment xml:lang="en">such as &apos;High speed...&apos;, &apos;TEN-T&apos;, &apos;Latvian National wide gauge&apos;. Characterization is left open to extensions as SKOS concept schemes or subclasses.</rdfs:comment>
-        <rdfs:label>Net entity selection criterion</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://cdm.ovh/rsm/network/netw#SubNetwork -->
-
-    <owl:Class rdf:about="https://cdm.ovh/rsm/network/netw#SubNetwork">
-        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/network/netw#RailwayInfrastructureArtefact"/>
-        <rdfs:label xml:lang="en">Sub network</rdfs:label>
     </owl:Class>
     
 
@@ -1027,6 +933,70 @@
         <rdfs:comment xml:lang="en">A Topology Graph individual denotes an information object carrying a serialized graph, typically retrievable from a file such as &lt;http://example.org/topology1.ttl&gt;. There can be several files, e.g. to provide several formats such as TTL, RDFXML, or JSON-LD.</rdfs:comment>
         <rdfs:label xml:lang="en">Topology graph</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- https://cdm.ovh/rsm/partsAndViews/pavo#AssetEntity -->
+
+    <owl:Class rdf:about="https://cdm.ovh/rsm/partsAndViews/pavo#AssetEntity">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- https://cdm.ovh/rsm/partsAndViews/pavo#ContainerEntity -->
+
+    <owl:Class rdf:about="https://cdm.ovh/rsm/partsAndViews/pavo#ContainerEntity">
+        <rdfs:subClassOf rdf:resource="https://cdm.ovh/rsm/partsAndViews/pavo#AssetEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://cdm.ovh/rsm/partsAndViews/pavo#ContainmentSituation -->
+
+    <rdf:Description rdf:about="https://cdm.ovh/rsm/partsAndViews/pavo#ContainmentSituation">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://cdm.ovh/rsm/partsAndViews/pavo#ContainmentTree -->
+
+    <rdf:Description rdf:about="https://cdm.ovh/rsm/partsAndViews/pavo#ContainmentTree">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Configuration"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://cdm.ovh/rsm/partsAndViews/pavo#ContainmentTreeType -->
+
+    <rdf:Description rdf:about="https://cdm.ovh/rsm/partsAndViews/pavo#ContainmentTreeType">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://cdm.ovh/rsm/partsAndViews/pavo#View -->
+
+    <rdf:Description rdf:about="https://cdm.ovh/rsm/partsAndViews/pavo#View">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://cdm.ovh/rsm/partsAndViews/pavo#ViewSituation -->
+
+    <rdf:Description rdf:about="https://cdm.ovh/rsm/partsAndViews/pavo#ViewSituation">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation"/>
+    </rdf:Description>
+    
+
+
+    <!-- https://cdm.ovh/rsm/partsAndViews/pavo#ViewStatement -->
+
+    <rdf:Description rdf:about="https://cdm.ovh/rsm/partsAndViews/pavo#ViewStatement">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject"/>
+    </rdf:Description>
 </rdf:RDF>
 
 
