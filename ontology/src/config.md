@@ -1,5 +1,5 @@
 ---
-main_ontology: ontology/src/core.ttl
+main_ontology: ontology/src/netw.ttl
 reasoner: hermit
 ---
 
