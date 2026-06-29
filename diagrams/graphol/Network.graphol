@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <graphol version="3">
-  <project name="Network" version="https://cdm.ovh/rsm/network/netw/0.1">
-    <ontology addLabelFromSimpleName="0" lang="en" addLabelFromUserInput="0" iri="https://cdm.ovh/rsm/network/netw" prefix="netw">
+  <project version="https://cdm.ovh/rsm/network/netw/0.1" name="Network">
+    <ontology addLabelFromSimpleName="0" lang="en" iri="https://cdm.ovh/rsm/network/netw" prefix="netw" addLabelFromUserInput="0">
       <imports>
-        <import location="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl" isLocal="0" iri="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl" version=""/>
-        <import location="https://cdm.ovh/rsm/partsAndViews/pavo" isLocal="0" iri="https://cdm.ovh/rsm/partsAndViews/pavo" version="https://cdm.ovh/rsm/partsAndViews/pavo/0.1"/>
-        <import location="https://cdm.ovh/rsm/time/time.ttl" isLocal="0" iri="https://cdm.ovh/rsm/time/time" version="https://cdm.ovh/rsm/time/time"/>
+        <import iri="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl" version="" isLocal="0" location="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl"/>
+        <import iri="https://cdm.ovh/rsm/partsAndViews/pavo" version="https://cdm.ovh/rsm/partsAndViews/pavo" isLocal="0" location="https://cdm.ovh/rsm/partsAndViews/pavo"/>
+        <import iri="https://cdm.ovh/rsm/time/time" version="https://cdm.ovh/rsm/time/time" isLocal="0" location="https://cdm.ovh/rsm/time/time.ttl"/>
       </imports>
       <prefixes>
         <prefix>
@@ -959,6 +959,15 @@
                 <language>en</language>
               </object>
             </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/network/netw#NetEntity</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>Any entity (material or immaterial) in a network. "In a network" can result from ownership, functional relationships, legal definitions; such distinctions are not part of this ontology.</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
           </annotations>
         </iri>
         <iri>
@@ -1037,7 +1046,7 @@
               <subject>https://cdm.ovh/rsm/network/netw#RailwayNetwork</subject>
               <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
               <object>
-                <lexicalForm>Class of all material (tracks, signals, stations...) and immaterial (speed restrictions, ...) assets constituting a network.</lexicalForm>
+                <lexicalForm>Denotes a railway network as understood by domain experts, including all material and immaterial aspects that constitute a network. The exact boundaries (ownership, functional relationship) are intentionally left open. The relationship between a network (as a container entity) and its contained assets are described in the Parts and Views (PAVO) ontology.</lexicalForm>
                 <datatype/>
                 <language>en</language>
               </object>
@@ -1060,7 +1069,7 @@
               <subject>https://cdm.ovh/rsm/network/netw#TopologyGraph</subject>
               <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
               <object>
-                <lexicalForm>A Topology Graph individual denotes an information object carrying a serialized graph, typically retrievable from a file such as &lt;http://example.org/topology1.ttl>. There can be several files, e.g. to provide several formats such as TTL, RDFXML, or JSON-LD.</lexicalForm>
+                <lexicalForm>A Topology Graph individual denotes an information object carrying a serialized graph, typically retrievable from an RDF file or a web document such as &lt;http://example.org/topology1>.</lexicalForm>
                 <datatype/>
                 <language>en</language>
               </object>
@@ -1099,7 +1108,7 @@
               <property>http://www.w3.org/2000/01/rdf-schema#label</property>
               <object>
                 <lexicalForm>has layout</lexicalForm>
-                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <datatype/>
                 <language>en</language>
               </object>
             </annotation>
@@ -1122,21 +1131,6 @@
               <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
               <object>
                 <lexicalForm>Links an infrastructure artefact (network or sub-network) to its sub-networks.</lexicalForm>
-                <datatype/>
-                <language>en</language>
-              </object>
-            </annotation>
-          </annotations>
-        </iri>
-        <iri>
-          <value>https://cdm.ovh/rsm/network/netw#hasTopology</value>
-          <functional/>
-          <annotations>
-            <annotation>
-              <subject>https://cdm.ovh/rsm/network/netw#hasTopology</subject>
-              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
-              <object>
-                <lexicalForm>has topology</lexicalForm>
                 <datatype/>
                 <language>en</language>
               </object>
@@ -1238,6 +1232,30 @@
           </annotations>
         </iri>
         <iri>
+          <value>https://cdm.ovh/rsm/network/netw#satisfiesTopology</value>
+          <functional/>
+          <annotations>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/network/netw#satisfiesTopology</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>satisfies topology</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>https://cdm.ovh/rsm/network/netw#satisfiesTopology</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>a subproperty of dul:satisfies; links a situation to a description.</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
           <value>https://cdm.ovh/rsm/network/netw#serializedAs</value>
           <annotations>
             <annotation>
@@ -1259,7 +1277,7 @@
               <property>http://www.w3.org/2000/01/rdf-schema#label</property>
               <object>
                 <lexicalForm>status</lexicalForm>
-                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <datatype/>
                 <language>en</language>
               </object>
             </annotation>
@@ -1338,6 +1356,9 @@
           <value>https://cdm.ovh/rsm/partsAndViews/pavo#showsEntity</value>
         </iri>
         <iri>
+          <value>https://cdm.ovh/rsm/time/time#hasTimeInterval</value>
+        </iri>
+        <iri>
           <value>https://cdm.ovh/rsm/time/time#hasValidityInterval</value>
         </iri>
         <iri>
@@ -1349,622 +1370,636 @@
       </iris>
     </ontology>
     <diagrams>
-      <diagram height="5000" width="5000" name="00_DUL_and_PAVO_alignment">
-        <node id="n22" color="#c2b078" type="role">
-          <geometry x="-340" height="50" width="70" y="120"/>
+      <diagram name="00_DUL_and_PAVO_alignment" height="5000" width="5000">
+        <node color="#c2b078" id="n22" type="role">
+          <geometry y="120" x="-340" height="50" width="70"/>
           <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasSetting</iri>
-          <label size="12" customSize="0" x="-340" height="23" width="64" y="90"/>
+          <label customSize="0" y="90" x="-340" height="23" width="64" size="12"/>
         </node>
-        <node id="n23" color="#fcfcfc" type="role">
-          <geometry x="-390" height="50" width="70" y="210"/>
+        <node color="#fcfcfc" id="n23" type="role">
+          <geometry y="210" x="-390" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#hasLayout</iri>
-          <label size="12" customSize="0" x="-390" height="23" width="63" y="180"/>
+          <label customSize="0" y="180" x="-390" height="23" width="63" size="12"/>
         </node>
-        <node id="n24" color="#fcfcfc" type="role">
-          <geometry x="-130" height="50" width="70" y="210"/>
+        <node color="#fcfcfc" id="n24" type="role">
+          <geometry y="210" x="-130" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#isLayoutFor</iri>
-          <label size="12" customSize="0" x="-130" height="23" width="70" y="180"/>
+          <label customSize="0" y="180" x="-130" height="23" width="70" size="12"/>
         </node>
-        <node id="n25" color="#c2b078" type="role">
-          <geometry x="-80" height="50" width="70" y="120"/>
+        <node color="#c2b078" id="n25" type="role">
+          <geometry y="120" x="-80" height="50" width="70"/>
           <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isSettingFor</iri>
-          <label size="12" customSize="0" x="-80" height="23" width="71" y="90"/>
+          <label customSize="0" y="90" x="-80" height="23" width="71" size="12"/>
         </node>
-        <node id="n26" color="#fcfcfc" type="concept">
-          <geometry x="-220" height="50" width="110" y="410"/>
+        <node color="#fcfcfc" id="n26" type="concept">
+          <geometry y="410" x="-220" height="50" width="110"/>
           <iri>https://cdm.ovh/rsm/network/netw#NetEntity</iri>
-          <label size="12" customSize="0" x="-220" height="23" width="110" y="410"/>
+          <label customSize="0" y="410" x="-220" height="23" width="110" size="12"/>
         </node>
-        <node id="n27" color="#fcfcfc" type="concept">
-          <geometry x="-380" height="50" width="110" y="410"/>
+        <node color="#fcfcfc" id="n27" type="concept">
+          <geometry y="410" x="-380" height="50" width="110"/>
           <iri>https://cdm.ovh/rsm/network/netw#RailwayNetwork</iri>
-          <label size="12" customSize="0" x="-380" height="23" width="110" y="410"/>
+          <label customSize="0" y="410" x="-380" height="23" width="110" size="12"/>
         </node>
-        <node id="n28" color="#f29210" type="concept">
-          <geometry x="-380" height="50" width="110" y="320"/>
+        <node color="#f29210" id="n28" type="concept">
+          <geometry y="320" x="-380" height="50" width="110"/>
           <iri>https://cdm.ovh/rsm/partsAndViews/pavo#ContainerEntity</iri>
-          <label size="12" customSize="0" x="-380" height="23" width="110" y="320"/>
+          <label customSize="0" y="320" x="-380" height="23" width="110" size="12"/>
         </node>
-        <node id="n29" color="#f29210" type="concept">
-          <geometry x="-220" height="50" width="110" y="320"/>
+        <node color="#f29210" id="n29" type="concept">
+          <geometry y="320" x="-220" height="50" width="110"/>
           <iri>https://cdm.ovh/rsm/partsAndViews/pavo#AssetEntity</iri>
-          <label size="12" customSize="0" x="-220" height="23" width="110" y="320"/>
+          <label customSize="0" y="320" x="-220" height="23" width="110" size="12"/>
         </node>
-        <node id="n30" color="#c2b078" type="concept">
-          <geometry x="-389" height="50" width="110" y="-78"/>
+        <node color="#c2b078" id="n30" type="concept">
+          <geometry y="-78" x="-389" height="50" width="110"/>
           <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description</iri>
-          <label size="12" customSize="0" x="-389" height="23" width="110" y="-78"/>
+          <label customSize="0" y="-78" x="-389" height="23" width="110" size="12"/>
         </node>
-        <node id="n31" color="#fcfcfc" type="concept">
-          <geometry x="-390" height="50" width="110" y="0"/>
+        <node color="#fcfcfc" id="n31" type="concept">
+          <geometry y="0" x="-390" height="50" width="110"/>
           <iri>https://cdm.ovh/rsm/network/netw#NetworkTopology</iri>
-          <label size="12" customSize="0" x="-390" height="23" width="110" y="0"/>
+          <label customSize="0" y="0" x="-390" height="23" width="110" size="12"/>
         </node>
-        <node id="n32" color="#fcfcfc" type="concept">
-          <geometry x="-230" height="50" width="110" y="0"/>
+        <node color="#fcfcfc" id="n32" type="concept">
+          <geometry y="0" x="-230" height="50" width="110"/>
           <iri>https://cdm.ovh/rsm/network/netw#TopologyGraph</iri>
-          <label size="12" customSize="0" x="-230" height="23" width="110" y="0"/>
+          <label customSize="0" y="0" x="-230" height="23" width="110" size="12"/>
         </node>
-        <node id="n33" color="#c2b078" type="concept">
-          <geometry x="-230" height="50" width="110" y="-80"/>
+        <node color="#c2b078" id="n33" type="concept">
+          <geometry y="-80" x="-230" height="50" width="110"/>
           <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject</iri>
-          <label size="12" customSize="0" x="-230" height="23" width="110" y="-80"/>
+          <label customSize="0" y="-80" x="-230" height="23" width="110" size="12"/>
         </node>
-        <node id="n34" color="#fcfcfc" type="concept">
-          <geometry x="-70" height="50" width="125" y="0"/>
+        <node color="#fcfcfc" id="n34" type="concept">
+          <geometry y="0" x="-70" height="50" width="125"/>
           <iri>https://cdm.ovh/rsm/network/netw#NetworkManagement</iri>
-          <label size="12" customSize="0" x="-70" height="23" width="125" y="0"/>
+          <label customSize="0" y="0" x="-70" height="23" width="125" size="12"/>
         </node>
-        <node id="n35" color="#c2b078" type="concept">
-          <geometry x="0" height="50" width="110" y="-80"/>
+        <node color="#c2b078" id="n35" type="concept">
+          <geometry y="-80" x="0" height="50" width="110"/>
           <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation</iri>
-          <label size="12" customSize="0" x="0" height="23" width="110" y="-80"/>
+          <label customSize="0" y="-80" x="0" height="23" width="110" size="12"/>
         </node>
-        <node id="n36" color="#fcfcfc" type="concept">
-          <geometry x="70" height="50" width="110" y="0"/>
+        <node color="#fcfcfc" id="n36" type="concept">
+          <geometry y="0" x="70" height="50" width="110"/>
           <iri>https://cdm.ovh/rsm/network/netw#NetworkLayout</iri>
-          <label size="12" customSize="0" x="70" height="23" width="110" y="0"/>
+          <label customSize="0" y="0" x="70" height="23" width="110" size="12"/>
         </node>
-        <node id="n37" color="#fcfcfc" type="role">
-          <geometry x="-30" height="50" width="70" y="210"/>
+        <node color="#fcfcfc" id="n37" type="role">
+          <geometry y="210" x="-30" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#isManagementFor</iri>
-          <label size="12" customSize="0" x="-30" height="23" width="105" y="180"/>
+          <label customSize="0" y="180" x="-30" height="23" width="105" size="12"/>
         </node>
-        <node id="n38" color="#fcfcfc" type="role">
-          <geometry x="-290" height="50" width="70" y="210"/>
+        <node color="#fcfcfc" id="n38" type="role">
+          <geometry y="210" x="-290" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#isManagedBy</iri>
-          <label size="12" customSize="0" x="-290" height="23" width="80" y="180"/>
+          <label customSize="0" y="180" x="-290" height="23" width="80" size="12"/>
         </node>
-        <edge id="e16" type="inclusion" target="n22" source="n23">
-          <point x="-390" y="210"/>
-          <point x="-340" y="120"/>
+        <node color="#c2b078" id="n39" type="role">
+          <geometry y="120" x="160" height="50" width="70"/>
+          <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#satisfies</iri>
+          <label customSize="0" y="90" x="160" height="23" width="52" size="12"/>
+        </node>
+        <node color="#fcfcfc" id="n40" type="role">
+          <geometry y="210" x="160" height="50" width="70"/>
+          <iri>https://cdm.ovh/rsm/network/netw#satisfiesTopology</iri>
+          <label customSize="0" y="180" x="160" height="23" width="102" size="12"/>
+        </node>
+        <edge source="n23" target="n22" id="e16" type="inclusion">
+          <point y="210" x="-390"/>
+          <point y="120" x="-340"/>
         </edge>
-        <edge id="e17" type="inclusion" target="n25" source="n24">
-          <point x="-130" y="210"/>
-          <point x="-80" y="120"/>
+        <edge source="n24" target="n25" id="e17" type="inclusion">
+          <point y="210" x="-130"/>
+          <point y="120" x="-80"/>
         </edge>
-        <edge id="e18" type="inclusion" target="n29" source="n26">
-          <point x="-220" y="410"/>
-          <point x="-220" y="320"/>
+        <edge source="n26" target="n29" id="e18" type="inclusion">
+          <point y="410" x="-220"/>
+          <point y="320" x="-220"/>
         </edge>
-        <edge id="e19" type="inclusion" target="n28" source="n27">
-          <point x="-380" y="410"/>
-          <point x="-380" y="320"/>
+        <edge source="n27" target="n28" id="e19" type="inclusion">
+          <point y="410" x="-380"/>
+          <point y="320" x="-380"/>
         </edge>
-        <edge id="e20" type="inclusion" target="n30" source="n31">
-          <point x="-390" y="0"/>
-          <point x="-389" y="-78"/>
+        <edge source="n31" target="n30" id="e20" type="inclusion">
+          <point y="0" x="-390"/>
+          <point y="-78" x="-389"/>
         </edge>
-        <edge id="e21" type="inclusion" target="n33" source="n32">
-          <point x="-230" y="0"/>
-          <point x="-230" y="-80"/>
+        <edge source="n32" target="n33" id="e21" type="inclusion">
+          <point y="0" x="-230"/>
+          <point y="-80" x="-230"/>
         </edge>
-        <edge id="e22" type="inclusion" target="n35" source="n34">
-          <point x="-70" y="0"/>
-          <point x="0" y="-80"/>
+        <edge source="n34" target="n35" id="e22" type="inclusion">
+          <point y="0" x="-70"/>
+          <point y="-80" x="0"/>
         </edge>
-        <edge id="e23" type="inclusion" target="n35" source="n36">
-          <point x="70" y="0"/>
-          <point x="0" y="-80"/>
+        <edge source="n36" target="n35" id="e23" type="inclusion">
+          <point y="0" x="70"/>
+          <point y="-80" x="0"/>
         </edge>
-        <edge id="e24" type="inclusion" target="n25" source="n37">
-          <point x="-30" y="210"/>
-          <point x="-80" y="120"/>
+        <edge source="n37" target="n25" id="e24" type="inclusion">
+          <point y="210" x="-30"/>
+          <point y="120" x="-80"/>
         </edge>
-        <edge id="e25" type="inclusion" target="n22" source="n38">
-          <point x="-290" y="210"/>
-          <point x="-340" y="120"/>
+        <edge source="n38" target="n22" id="e25" type="inclusion">
+          <point y="210" x="-290"/>
+          <point y="120" x="-340"/>
+        </edge>
+        <edge source="n40" target="n39" id="e27" type="inclusion">
+          <point y="210" x="160"/>
+          <point y="120" x="160"/>
         </edge>
       </diagram>
-      <diagram height="5000" width="5000" name="01_Network_overview">
-        <node id="n2" color="#fcfcfc" type="concept">
-          <geometry x="300" height="220" width="110" y="0"/>
+      <diagram name="01_Network_overview" height="5000" width="5000">
+        <node color="#fcfcfc" id="n2" type="concept">
+          <geometry y="0" x="300" height="220" width="110"/>
           <iri>https://cdm.ovh/rsm/network/netw#RailwayNetwork</iri>
-          <label size="12" customSize="0" x="300" height="23" width="110" y="0"/>
+          <label customSize="0" y="0" x="300" height="23" width="110" size="12"/>
         </node>
-        <node id="n22" color="#fcfcfc" type="concept">
-          <geometry x="760" height="50" width="125" y="50"/>
+        <node color="#fcfcfc" id="n22" type="concept">
+          <geometry y="50" x="760" height="50" width="125"/>
           <iri>https://cdm.ovh/rsm/network/netw#NetworkManagement</iri>
-          <label size="12" customSize="0" x="760" height="23" width="125" y="50"/>
+          <label customSize="0" y="50" x="760" height="23" width="125" size="12"/>
         </node>
-        <node id="n36" color="#fcfcfc" type="concept">
-          <geometry x="761" height="50" width="117" y="-50"/>
+        <node color="#fcfcfc" id="n36" type="concept">
+          <geometry y="-50" x="761" height="50" width="117"/>
           <iri>https://cdm.ovh/rsm/network/netw#NetworkLayout</iri>
-          <label size="12" customSize="0" x="761" height="23" width="117" y="-50"/>
+          <label customSize="0" y="-50" x="761" height="23" width="117" size="12"/>
         </node>
-        <node id="n5" color="#c2b078" type="concept">
-          <geometry x="890" height="50" width="110" y="-180"/>
+        <node color="#c2b078" id="n5" type="concept">
+          <geometry y="-180" x="890" height="50" width="110"/>
           <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation</iri>
-          <label size="12" customSize="0" x="890" height="23" width="110" y="-180"/>
+          <label customSize="0" y="-180" x="890" height="23" width="110" size="12"/>
         </node>
-        <node id="n67" color="#fcfcfc" type="role">
-          <geometry x="530" height="50" width="70" y="50"/>
+        <node color="#fcfcfc" id="n67" type="role">
+          <geometry y="50" x="530" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#isManagedBy</iri>
-          <label size="12" customSize="0" x="530" height="23" width="80" y="20"/>
+          <label customSize="0" y="20" x="530" height="23" width="80" size="12"/>
         </node>
-        <node id="n68" color="#000000" type="range-restriction">
-          <geometry x="630" height="20" width="20" y="50"/>
-          <label size="12" customSize="0" x="630" height="23" width="39" y="28">exists</label>
+        <node color="#000000" id="n68" type="range-restriction">
+          <geometry y="50" x="630" height="20" width="20"/>
+          <label customSize="0" y="28" x="630" height="23" width="39" size="12">exists</label>
         </node>
-        <node id="n69" color="#fcfcfc" type="domain-restriction">
-          <geometry x="430" height="20" width="20" y="50"/>
-          <label size="12" customSize="0" x="430" height="23" width="39" y="28">exists</label>
+        <node color="#fcfcfc" id="n69" type="domain-restriction">
+          <geometry y="50" x="430" height="20" width="20"/>
+          <label customSize="0" y="28" x="430" height="23" width="39" size="12">exists</label>
         </node>
-        <node id="n71" color="#fcfcfc" type="domain-restriction">
-          <geometry x="430" height="20" width="20" y="-50"/>
-          <label size="12" customSize="0" x="430" height="23" width="39" y="-72">exists</label>
+        <node color="#fcfcfc" id="n71" type="domain-restriction">
+          <geometry y="-50" x="430" height="20" width="20"/>
+          <label customSize="0" y="-72" x="430" height="23" width="39" size="12">exists</label>
         </node>
-        <node id="n73" color="#fcfcfc" type="role">
-          <geometry x="530" height="50" width="70" y="-50"/>
+        <node color="#fcfcfc" id="n73" type="role">
+          <geometry y="-50" x="530" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#hasLayout</iri>
-          <label size="12" customSize="0" x="530" height="23" width="63" y="-80"/>
+          <label customSize="0" y="-80" x="530" height="23" width="63" size="12"/>
         </node>
-        <node id="n74" color="#000000" type="range-restriction">
-          <geometry x="630" height="20" width="20" y="-50"/>
-          <label size="12" customSize="0" x="630" height="23" width="39" y="-72">exists</label>
+        <node color="#000000" id="n74" type="range-restriction">
+          <geometry y="-50" x="630" height="20" width="20"/>
+          <label customSize="0" y="-72" x="630" height="23" width="39" size="12">exists</label>
         </node>
-        <edge id="e101" type="inclusion" target="n2" source="n71">
-          <point x="430" y="-50"/>
-          <point x="354" y="-50"/>
+        <edge source="n71" target="n2" id="e101" type="inclusion">
+          <point y="-50" x="430"/>
+          <point y="-50" x="354"/>
         </edge>
-        <edge id="e20" type="inclusion" target="n5" source="n22">
-          <point x="760" y="50"/>
-          <point x="890" y="50"/>
-          <point x="890" y="-180"/>
+        <edge source="n22" target="n5" id="e20" type="inclusion">
+          <point y="50" x="760"/>
+          <point y="50" x="890"/>
+          <point y="-180" x="890"/>
         </edge>
-        <edge id="e30" type="inclusion" target="n22" source="n68">
-          <point x="630" y="50"/>
-          <point x="760" y="50"/>
+        <edge source="n68" target="n22" id="e30" type="inclusion">
+          <point y="50" x="630"/>
+          <point y="50" x="760"/>
         </edge>
-        <edge id="e31" type="inclusion" target="n2" source="n69">
-          <point x="430" y="50"/>
-          <point x="354" y="50"/>
+        <edge source="n69" target="n2" id="e31" type="inclusion">
+          <point y="50" x="430"/>
+          <point y="50" x="354"/>
         </edge>
-        <edge id="e38" type="inclusion" target="n5" source="n36">
-          <point x="761" y="-50"/>
-          <point x="837" y="-50"/>
-          <point x="890" y="-50"/>
-          <point x="890" y="-180"/>
+        <edge source="n36" target="n5" id="e38" type="inclusion">
+          <point y="-50" x="761"/>
+          <point y="-50" x="837"/>
+          <point y="-50" x="890"/>
+          <point y="-180" x="890"/>
         </edge>
-        <edge id="e89" type="input" target="n69" source="n67">
-          <point x="530" y="50"/>
-          <point x="430" y="50"/>
+        <edge source="n67" target="n69" id="e89" type="input">
+          <point y="50" x="530"/>
+          <point y="50" x="430"/>
         </edge>
-        <edge id="e90" type="input" target="n68" source="n67">
-          <point x="530" y="50"/>
-          <point x="630" y="50"/>
+        <edge source="n67" target="n68" id="e90" type="input">
+          <point y="50" x="530"/>
+          <point y="50" x="630"/>
         </edge>
-        <edge id="e96" type="input" target="n71" source="n73">
-          <point x="530" y="-50"/>
-          <point x="430" y="-50"/>
+        <edge source="n73" target="n71" id="e96" type="input">
+          <point y="-50" x="530"/>
+          <point y="-50" x="430"/>
         </edge>
-        <edge id="e98" type="input" target="n74" source="n73">
-          <point x="530" y="-50"/>
-          <point x="630" y="-50"/>
+        <edge source="n73" target="n74" id="e98" type="input">
+          <point y="-50" x="530"/>
+          <point y="-50" x="630"/>
         </edge>
-        <edge id="e99" type="inclusion" target="n36" source="n74">
-          <point x="630" y="-50"/>
-          <point x="761" y="-50"/>
+        <edge source="n74" target="n36" id="e99" type="inclusion">
+          <point y="-50" x="630"/>
+          <point y="-50" x="761"/>
         </edge>
       </diagram>
-      <diagram height="5000" width="5000" name="02_Network_layout">
-        <node id="n10" color="#fcfcfc" type="role">
-          <geometry x="120" height="50" width="70" y="-190"/>
-          <iri>https://cdm.ovh/rsm/network/netw#hasTopology</iri>
-          <label size="12" customSize="0" x="120" height="23" width="76" y="-220"/>
+      <diagram name="02_Network_layout" height="5000" width="5000">
+        <node color="#fcfcfc" id="n10" type="role">
+          <geometry y="-190" x="120" height="50" width="70"/>
+          <iri>https://cdm.ovh/rsm/network/netw#satisfiesTopology</iri>
+          <label customSize="0" y="-220" x="120" height="23" width="102" size="12"/>
         </node>
-        <node id="n11" color="#fcfcfc" type="role">
-          <geometry x="120" height="50" width="70" y="-280"/>
+        <node color="#fcfcfc" id="n11" type="role">
+          <geometry y="-280" x="120" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#isLayoutFor</iri>
-          <label size="12" customSize="0" x="120" height="23" width="70" y="-310"/>
+          <label customSize="0" y="-310" x="120" height="23" width="70" size="12"/>
         </node>
-        <node id="n14" color="#fcfcfc" type="role">
-          <geometry x="420" height="50" width="70" y="-130"/>
+        <node color="#fcfcfc" id="n14" type="role">
+          <geometry y="-130" x="420" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#serializedAs</iri>
-          <label size="12" customSize="0" x="420" height="23" width="72" y="-160"/>
+          <label customSize="0" y="-160" x="420" height="23" width="72" size="12"/>
         </node>
-        <node id="n15" color="#fcfcfc" type="concept">
-          <geometry x="240" height="50" width="110" y="-130"/>
+        <node color="#fcfcfc" id="n15" type="concept">
+          <geometry y="-130" x="240" height="50" width="110"/>
           <iri>https://cdm.ovh/rsm/network/netw#NetworkTopology</iri>
-          <label size="12" customSize="0" x="240" height="23" width="110" y="-130"/>
+          <label customSize="0" y="-130" x="240" height="23" width="110" size="12"/>
         </node>
-        <node id="n16" color="#646b63" type="concept">
-          <geometry x="300" height="50" width="110" y="80"/>
+        <node color="#646b63" id="n16" type="concept">
+          <geometry y="80" x="300" height="50" width="110"/>
           <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept</iri>
-          <label size="12" customSize="0" x="300" height="23" width="110" y="80"/>
+          <label customSize="0" y="80" x="300" height="23" width="110" size="12"/>
         </node>
-        <node id="n19" color="#fcfcfc" type="domain-restriction">
-          <geometry x="40" height="20" width="20" y="-130"/>
-          <label size="12" customSize="0" x="40" height="23" width="39" y="-152">exists</label>
+        <node color="#fcfcfc" id="n19" type="domain-restriction">
+          <geometry y="-130" x="40" height="20" width="20"/>
+          <label customSize="0" y="-152" x="40" height="23" width="39" size="12">exists</label>
         </node>
-        <node id="n21" color="#fcfcfc" type="domain-restriction">
-          <geometry x="40" height="20" width="20" y="80"/>
-          <label size="12" customSize="0" x="40" height="23" width="39" y="58">exists</label>
+        <node color="#fcfcfc" id="n21" type="domain-restriction">
+          <geometry y="80" x="40" height="20" width="20"/>
+          <label customSize="0" y="58" x="40" height="23" width="39" size="12">exists</label>
         </node>
-        <node id="n23" color="#000000" type="range-restriction">
-          <geometry x="200" height="20" width="20" y="-280"/>
-          <label size="12" customSize="0" x="200" height="23" width="39" y="-302">exists</label>
+        <node color="#000000" id="n23" type="range-restriction">
+          <geometry y="-280" x="200" height="20" width="20"/>
+          <label customSize="0" y="-302" x="200" height="23" width="39" size="12">exists</label>
         </node>
-        <node id="n25" color="#fcfcfc" type="role">
-          <geometry x="120" height="50" width="70" y="80"/>
+        <node color="#fcfcfc" id="n25" type="role">
+          <geometry y="80" x="120" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#status</iri>
-          <label size="12" customSize="0" x="120" height="23" width="41" y="50"/>
+          <label customSize="0" y="50" x="120" height="23" width="41" size="12"/>
         </node>
-        <node id="n26" color="#000000" type="range-restriction">
-          <geometry x="500" height="20" width="20" y="-130"/>
-          <label size="12" customSize="0" x="500" height="23" width="39" y="-152">exists</label>
+        <node color="#000000" id="n26" type="range-restriction">
+          <geometry y="-130" x="500" height="20" width="20"/>
+          <label customSize="0" y="-152" x="500" height="23" width="39" size="12">exists</label>
         </node>
-        <node id="n29" color="#c2b078" type="concept">
-          <geometry x="240" height="50" width="110" y="-30"/>
+        <node color="#c2b078" id="n29" type="concept">
+          <geometry y="-30" x="240" height="50" width="110"/>
           <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval</iri>
-          <label size="12" customSize="0" x="240" height="23" width="110" y="-30"/>
+          <label customSize="0" y="-30" x="240" height="23" width="110" size="12"/>
         </node>
-        <node id="n30" color="#fcfcfc" type="concept">
-          <geometry x="300" height="50" width="110" y="-280"/>
+        <node color="#fcfcfc" id="n30" type="concept">
+          <geometry y="-280" x="300" height="50" width="110"/>
           <iri>https://cdm.ovh/rsm/network/netw#RailwayNetwork</iri>
-          <label size="12" customSize="0" x="300" height="23" width="110" y="-280"/>
+          <label customSize="0" y="-280" x="300" height="23" width="110" size="12"/>
         </node>
-        <node id="n31" color="#16ccef" type="role">
-          <geometry x="120" height="50" width="70" y="-70"/>
+        <node color="#16ccef" id="n31" type="role">
+          <geometry y="-70" x="120" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/time/time#hasValidityInterval</iri>
-          <label size="12" customSize="0" x="120" height="23" width="105" y="-100"/>
+          <label customSize="0" y="-100" x="120" height="23" width="105" size="12"/>
         </node>
-        <node id="n34" color="#fcfcfc" type="domain-restriction">
-          <geometry x="340" height="20" width="20" y="-130"/>
-          <label size="12" customSize="0" x="340" height="23" width="39" y="-152">exists</label>
+        <node color="#fcfcfc" id="n34" type="domain-restriction">
+          <geometry y="-130" x="340" height="20" width="20"/>
+          <label customSize="0" y="-152" x="340" height="23" width="39" size="12">exists</label>
         </node>
-        <node id="n35" color="#fcfcfc" type="domain-restriction">
-          <geometry x="40" height="20" width="20" y="-30"/>
-          <label size="12" customSize="0" x="40" height="23" width="39" y="-52">forall</label>
+        <node color="#fcfcfc" id="n35" type="domain-restriction">
+          <geometry y="-30" x="40" height="20" width="20"/>
+          <label customSize="0" y="-52" x="40" height="23" width="39" size="12">forall</label>
         </node>
-        <node id="n4" color="#fcfcfc" type="domain-restriction">
-          <geometry x="40" height="20" width="20" y="-280"/>
-          <label size="12" customSize="0" x="40" height="23" width="39" y="-302">exists</label>
+        <node color="#fcfcfc" id="n4" type="domain-restriction">
+          <geometry y="-280" x="40" height="20" width="20"/>
+          <label customSize="0" y="-302" x="40" height="23" width="39" size="12">exists</label>
         </node>
-        <node id="n5" color="#fcfcfc" type="concept">
-          <geometry x="-70" height="650" width="135" y="15"/>
+        <node color="#fcfcfc" id="n5" type="concept">
+          <geometry y="15" x="-70" height="650" width="135"/>
           <iri>https://cdm.ovh/rsm/network/netw#NetworkLayout</iri>
-          <label size="12" customSize="0" x="-70" height="23" width="135" y="15"/>
+          <label customSize="0" y="15" x="-70" height="23" width="135" size="12"/>
         </node>
-        <node id="n6" color="#000000" type="range-restriction">
-          <geometry x="200" height="20" width="20" y="80"/>
-          <label size="12" customSize="0" x="200" height="23" width="39" y="58">exists</label>
+        <node color="#000000" id="n6" type="range-restriction">
+          <geometry y="80" x="200" height="20" width="20"/>
+          <label customSize="0" y="58" x="200" height="23" width="39" size="12">exists</label>
         </node>
-        <node id="n8" color="#fcfcfc" type="concept">
-          <geometry x="600" height="50" width="110" y="-130"/>
+        <node color="#fcfcfc" id="n8" type="concept">
+          <geometry y="-130" x="600" height="50" width="110"/>
           <iri>https://cdm.ovh/rsm/network/netw#TopologyGraph</iri>
-          <label size="12" customSize="0" x="600" height="23" width="110" y="-130"/>
+          <label customSize="0" y="-130" x="600" height="23" width="110" size="12"/>
         </node>
-        <edge id="e10" type="inclusion" target="n35" source="n5">
-          <point x="-3" y="-30"/>
-          <point x="40" y="-30"/>
+        <edge source="n5" target="n35" id="e10" type="inclusion">
+          <point y="-30" x="-3"/>
+          <point y="-30" x="40"/>
         </edge>
-        <edge id="e11" type="inclusion" target="n19" source="n5">
-          <point x="-3" y="-130"/>
-          <point x="40" y="-130"/>
+        <edge source="n5" target="n19" id="e11" type="inclusion">
+          <point y="-130" x="-3"/>
+          <point y="-130" x="40"/>
         </edge>
-        <edge id="e12" type="inclusion" target="n5" source="n21">
-          <point x="40" y="80"/>
-          <point x="-3" y="80"/>
+        <edge source="n21" target="n5" id="e12" type="inclusion">
+          <point y="80" x="40"/>
+          <point y="80" x="-3"/>
         </edge>
-        <edge id="e13" type="input" target="n6" source="n25">
-          <point x="120" y="80"/>
-          <point x="200" y="80"/>
+        <edge source="n25" target="n6" id="e13" type="input">
+          <point y="80" x="120"/>
+          <point y="80" x="200"/>
         </edge>
-        <edge id="e14" type="inclusion" target="n16" source="n6">
-          <point x="200" y="80"/>
-          <point x="300" y="80"/>
+        <edge source="n6" target="n16" id="e14" type="inclusion">
+          <point y="80" x="200"/>
+          <point y="80" x="300"/>
         </edge>
-        <edge id="e16" type="inclusion" target="n8" source="n26">
-          <point x="500" y="-130"/>
-          <point x="600" y="-130"/>
+        <edge source="n26" target="n8" id="e16" type="inclusion">
+          <point y="-130" x="500"/>
+          <point y="-130" x="600"/>
         </edge>
-        <edge id="e19" type="input" target="n19" source="n10">
-          <point x="120" y="-190"/>
-          <point x="40" y="-130"/>
+        <edge source="n10" target="n19" id="e19" type="input">
+          <point y="-190" x="120"/>
+          <point y="-130" x="40"/>
         </edge>
-        <edge id="e20" type="input" target="n23" source="n11">
-          <point x="120" y="-280"/>
-          <point x="200" y="-280"/>
+        <edge source="n11" target="n23" id="e20" type="input">
+          <point y="-280" x="120"/>
+          <point y="-280" x="200"/>
         </edge>
-        <edge id="e23" type="input" target="n34" source="n14">
-          <point x="420" y="-130"/>
-          <point x="340" y="-130"/>
+        <edge source="n14" target="n34" id="e23" type="input">
+          <point y="-130" x="420"/>
+          <point y="-130" x="340"/>
         </edge>
-        <edge id="e24" type="input" target="n26" source="n14">
-          <point x="420" y="-130"/>
-          <point x="500" y="-130"/>
+        <edge source="n14" target="n26" id="e24" type="input">
+          <point y="-130" x="420"/>
+          <point y="-130" x="500"/>
         </edge>
-        <edge id="e25" type="input" target="n19" source="n15">
-          <point x="240" y="-130"/>
-          <point x="40" y="-130"/>
+        <edge source="n15" target="n19" id="e25" type="input">
+          <point y="-130" x="240"/>
+          <point y="-130" x="40"/>
         </edge>
-        <edge id="e27" type="inclusion" target="n15" source="n34">
-          <point x="340" y="-130"/>
-          <point x="240" y="-130"/>
+        <edge source="n34" target="n15" id="e27" type="inclusion">
+          <point y="-130" x="340"/>
+          <point y="-130" x="240"/>
         </edge>
-        <edge id="e31" type="input" target="n21" source="n25">
-          <point x="120" y="80"/>
-          <point x="40" y="80"/>
+        <edge source="n25" target="n21" id="e31" type="input">
+          <point y="80" x="120"/>
+          <point y="80" x="40"/>
         </edge>
-        <edge id="e32" type="inclusion" target="n30" source="n23">
-          <point x="200" y="-280"/>
-          <point x="300" y="-280"/>
+        <edge source="n23" target="n30" id="e32" type="inclusion">
+          <point y="-280" x="200"/>
+          <point y="-280" x="300"/>
         </edge>
-        <edge id="e34" type="input" target="n35" source="n29">
-          <point x="240" y="-30"/>
-          <point x="40" y="-30"/>
+        <edge source="n29" target="n35" id="e34" type="input">
+          <point y="-30" x="240"/>
+          <point y="-30" x="40"/>
         </edge>
-        <edge id="e35" type="input" target="n35" source="n31">
-          <point x="120" y="-70"/>
-          <point x="40" y="-30"/>
+        <edge source="n31" target="n35" id="e35" type="input">
+          <point y="-70" x="120"/>
+          <point y="-30" x="40"/>
         </edge>
-        <edge id="e8" type="inclusion" target="n5" source="n4">
-          <point x="40" y="-280"/>
-          <point x="-3" y="-280"/>
+        <edge source="n4" target="n5" id="e8" type="inclusion">
+          <point y="-280" x="40"/>
+          <point y="-280" x="-3"/>
         </edge>
-        <edge id="e9" type="input" target="n4" source="n11">
-          <point x="120" y="-280"/>
-          <point x="40" y="-280"/>
+        <edge source="n11" target="n4" id="e9" type="input">
+          <point y="-280" x="120"/>
+          <point y="-280" x="40"/>
         </edge>
       </diagram>
-      <diagram height="5000" width="5000" name="03_Network_management">
-        <node id="n13" color="#fcfcfc" type="concept">
-          <geometry x="30" height="485" width="125" y="57"/>
+      <diagram name="03_Network_management" height="5000" width="5000">
+        <node color="#fcfcfc" id="n13" type="concept">
+          <geometry y="57" x="30" height="485" width="125"/>
           <iri>https://cdm.ovh/rsm/network/netw#NetworkManagement</iri>
-          <label size="12" customSize="0" x="30" height="23" width="125" y="57"/>
+          <label customSize="0" y="57" x="30" height="23" width="125" size="12"/>
         </node>
-        <node id="n18" color="#000000" type="range-restriction">
-          <geometry x="300" height="20" width="20" y="40"/>
-          <label size="12" customSize="0" x="300" height="23" width="39" y="18">exists</label>
+        <node color="#000000" id="n18" type="range-restriction">
+          <geometry y="40" x="300" height="20" width="20"/>
+          <label customSize="0" y="18" x="300" height="23" width="39" size="12">exists</label>
         </node>
-        <node id="n2" color="#fcfcfc" type="domain-restriction">
-          <geometry x="140" height="20" width="20" y="-30"/>
-          <label size="12" customSize="0" x="140" height="23" width="39" y="-52">forall</label>
+        <node color="#fcfcfc" id="n2" type="domain-restriction">
+          <geometry y="-30" x="140" height="20" width="20"/>
+          <label customSize="0" y="-52" x="140" height="23" width="39" size="12">forall</label>
         </node>
-        <node id="n20" color="#fcfcfc" type="role">
-          <geometry x="220" height="50" width="70" y="40"/>
+        <node color="#fcfcfc" id="n20" type="role">
+          <geometry y="40" x="220" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#isManagementFor</iri>
-          <label size="12" customSize="0" x="220" height="23" width="105" y="10"/>
+          <label customSize="0" y="10" x="220" height="23" width="105" size="12"/>
         </node>
-        <node id="n22" color="#fcfcfc" type="domain-restriction">
-          <geometry x="140" height="20" width="20" y="40"/>
-          <label size="12" customSize="0" x="140" height="23" width="39" y="18">exists</label>
+        <node color="#fcfcfc" id="n22" type="domain-restriction">
+          <geometry y="40" x="140" height="20" width="20"/>
+          <label customSize="0" y="18" x="140" height="23" width="39" size="12">exists</label>
         </node>
-        <node id="n27" color="#000000" type="range-restriction">
-          <geometry x="300" height="20" width="20" y="-150"/>
-          <label size="12" customSize="0" x="300" height="23" width="39" y="-172">exists</label>
+        <node color="#000000" id="n27" type="range-restriction">
+          <geometry y="-150" x="300" height="20" width="20"/>
+          <label customSize="0" y="-172" x="300" height="23" width="39" size="12">exists</label>
         </node>
-        <node id="n28" color="#16ccef" type="role">
-          <geometry x="220" height="50" width="70" y="-70"/>
+        <node color="#16ccef" id="n28" type="role">
+          <geometry y="-70" x="220" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/time/time#hasValidityInterval</iri>
-          <label size="12" customSize="0" x="220" height="23" width="105" y="-100"/>
+          <label customSize="0" y="-100" x="220" height="23" width="105" size="12"/>
         </node>
-        <node id="n33" color="#c2b078" type="concept">
-          <geometry x="400" height="50" width="110" y="-30"/>
+        <node color="#c2b078" id="n33" type="concept">
+          <geometry y="-30" x="400" height="50" width="110"/>
           <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval</iri>
-          <label size="12" customSize="0" x="400" height="23" width="110" y="-30"/>
+          <label customSize="0" y="-30" x="400" height="23" width="110" size="12"/>
         </node>
-        <node id="n36" color="#fcfcfc" type="role">
-          <geometry x="220" height="50" width="70" y="-150"/>
+        <node color="#fcfcfc" id="n36" type="role">
+          <geometry y="-150" x="220" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#isManagedBy</iri>
-          <label size="12" customSize="0" x="220" height="23" width="80" y="-180"/>
+          <label customSize="0" y="-180" x="220" height="23" width="80" size="12"/>
         </node>
-        <node id="n37" color="#fcfcfc" type="concept">
-          <geometry x="400" height="50" width="110" y="40"/>
+        <node color="#fcfcfc" id="n37" type="concept">
+          <geometry y="40" x="400" height="50" width="110"/>
           <iri>https://cdm.ovh/rsm/network/netw#RailwayNetwork</iri>
-          <label size="12" customSize="0" x="400" height="23" width="110" y="40"/>
+          <label customSize="0" y="40" x="400" height="23" width="110" size="12"/>
         </node>
-        <node id="n7" color="#c2b078" type="concept">
-          <geometry x="400" height="50" width="110" y="-150"/>
+        <node color="#c2b078" id="n7" type="concept">
+          <geometry y="-150" x="400" height="50" width="110"/>
           <iri>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialAgent</iri>
-          <label size="12" customSize="0" x="400" height="23" width="110" y="-150"/>
+          <label customSize="0" y="-150" x="400" height="23" width="110" size="12"/>
         </node>
-        <node id="n9" color="#fcfcfc" type="domain-restriction">
-          <geometry x="140" height="20" width="20" y="-150"/>
-          <label size="12" customSize="0" x="140" height="23" width="39" y="-172">exists</label>
+        <node color="#fcfcfc" id="n9" type="domain-restriction">
+          <geometry y="-150" x="140" height="20" width="20"/>
+          <label customSize="0" y="-172" x="140" height="23" width="39" size="12">exists</label>
         </node>
-        <edge id="e18" type="inclusion" target="n13" source="n9">
-          <point x="140" y="-150"/>
-          <point x="91" y="-150"/>
+        <edge source="n9" target="n13" id="e18" type="inclusion">
+          <point y="-150" x="140"/>
+          <point y="-150" x="91"/>
         </edge>
-        <edge id="e22" type="inclusion" target="n13" source="n22">
-          <point x="140" y="40"/>
-          <point x="91" y="40"/>
+        <edge source="n22" target="n13" id="e22" type="inclusion">
+          <point y="40" x="140"/>
+          <point y="40" x="91"/>
         </edge>
-        <edge id="e29" type="input" target="n18" source="n20">
-          <point x="220" y="40"/>
-          <point x="300" y="40"/>
+        <edge source="n20" target="n18" id="e29" type="input">
+          <point y="40" x="220"/>
+          <point y="40" x="300"/>
         </edge>
-        <edge id="e30" type="input" target="n22" source="n20">
-          <point x="220" y="40"/>
-          <point x="140" y="40"/>
+        <edge source="n20" target="n22" id="e30" type="input">
+          <point y="40" x="220"/>
+          <point y="40" x="140"/>
         </edge>
-        <edge id="e38" type="input" target="n9" source="n36">
-          <point x="220" y="-150"/>
-          <point x="140" y="-150"/>
+        <edge source="n36" target="n9" id="e38" type="input">
+          <point y="-150" x="220"/>
+          <point y="-150" x="140"/>
         </edge>
-        <edge id="e39" type="input" target="n27" source="n36">
-          <point x="220" y="-150"/>
-          <point x="300" y="-150"/>
+        <edge source="n36" target="n27" id="e39" type="input">
+          <point y="-150" x="220"/>
+          <point y="-150" x="300"/>
         </edge>
-        <edge id="e4" type="input" target="n2" source="n28">
-          <point x="220" y="-70"/>
-          <point x="140" y="-30"/>
+        <edge source="n28" target="n2" id="e4" type="input">
+          <point y="-70" x="220"/>
+          <point y="-30" x="140"/>
         </edge>
-        <edge id="e40" type="inclusion" target="n37" source="n18">
-          <point x="300" y="40"/>
-          <point x="400" y="40"/>
+        <edge source="n18" target="n37" id="e40" type="inclusion">
+          <point y="40" x="300"/>
+          <point y="40" x="400"/>
         </edge>
-        <edge id="e41" type="inclusion" target="n7" source="n27">
-          <point x="300" y="-150"/>
-          <point x="400" y="-150"/>
+        <edge source="n27" target="n7" id="e41" type="inclusion">
+          <point y="-150" x="300"/>
+          <point y="-150" x="400"/>
         </edge>
-        <edge id="e5" type="inclusion" target="n2" source="n13">
-          <point x="91" y="-29"/>
-          <point x="140" y="-30"/>
+        <edge source="n13" target="n2" id="e5" type="inclusion">
+          <point y="-29" x="91"/>
+          <point y="-30" x="140"/>
         </edge>
-        <edge id="e6" type="input" target="n2" source="n33">
-          <point x="400" y="-30"/>
-          <point x="140" y="-30"/>
+        <edge source="n33" target="n2" id="e6" type="input">
+          <point y="-30" x="400"/>
+          <point y="-30" x="140"/>
         </edge>
       </diagram>
-      <diagram height="5000" width="5000" name="04_Property_details">
-        <node id="n10" color="#fcfcfc" type="concept">
-          <geometry x="-740" height="50" width="110" y="-420"/>
+      <diagram name="04_Property_details" height="5000" width="5000">
+        <node color="#fcfcfc" id="n10" type="concept">
+          <geometry y="-420" x="-740" height="50" width="110"/>
           <iri>https://cdm.ovh/rsm/network/netw#NetworkTopology</iri>
-          <label size="12" customSize="0" x="-740" height="23" width="110" y="-420"/>
+          <label customSize="0" y="-420" x="-740" height="23" width="110" size="12"/>
         </node>
-        <node id="n11" color="#fcfcfc" type="concept">
-          <geometry x="-1100" height="50" width="110" y="-420"/>
+        <node color="#fcfcfc" id="n11" type="concept">
+          <geometry y="-420" x="-1100" height="50" width="110"/>
           <iri>https://cdm.ovh/rsm/network/netw#NetworkLayout</iri>
-          <label size="12" customSize="0" x="-1100" height="23" width="110" y="-420"/>
+          <label customSize="0" y="-420" x="-1100" height="23" width="110" size="12"/>
         </node>
-        <node id="n2" color="#fcfcfc" type="role">
-          <geometry x="-930" height="50" width="70" y="-150"/>
+        <node color="#fcfcfc" id="n2" type="role">
+          <geometry y="-150" x="-930" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#isSubNetworkOf</iri>
-          <label size="12" customSize="0" x="-930" height="23" width="94" y="-180"/>
+          <label customSize="0" y="-180" x="-930" height="23" width="94" size="12"/>
         </node>
-        <node id="n21" color="#fcfcfc" type="role-inverse">
-          <geometry x="-1030" height="30" width="50" y="-240"/>
-          <label size="12" customSize="0" x="-1030" height="23" width="23" y="-240"/>
+        <node color="#fcfcfc" id="n21" type="role-inverse">
+          <geometry y="-240" x="-1030" height="30" width="50"/>
+          <label customSize="0" y="-240" x="-1030" height="23" width="23" size="12"/>
         </node>
-        <node id="n22" color="#fcfcfc" type="role">
-          <geometry x="-1120" height="50" width="70" y="-240"/>
+        <node color="#fcfcfc" id="n22" type="role">
+          <geometry y="-240" x="-1120" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#isContainedIn</iri>
-          <label size="12" customSize="0" x="-1120" height="23" width="81" y="-270"/>
+          <label customSize="0" y="-270" x="-1120" height="23" width="81" size="12"/>
         </node>
-        <node id="n23" color="#fcfcfc" type="role">
-          <geometry x="-930" height="50" width="70" y="-240"/>
+        <node color="#fcfcfc" id="n23" type="role">
+          <geometry y="-240" x="-930" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#containsEntity</iri>
-          <label size="12" customSize="0" x="-930" height="23" width="83" y="-270"/>
+          <label customSize="0" y="-270" x="-930" height="23" width="83" size="12"/>
         </node>
-        <node id="n32" color="#fcfcfc" type="role">
-          <geometry x="-1120" height="50" width="70" y="-330"/>
+        <node color="#fcfcfc" id="n32" type="role">
+          <geometry y="-330" x="-1120" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#isContainedInTransitive</iri>
-          <label size="12" customSize="0" x="-1120" height="23" width="132" y="-360"/>
+          <label customSize="0" y="-360" x="-1120" height="23" width="132" size="12"/>
         </node>
-        <node id="n33" color="#fcfcfc" type="role">
-          <geometry x="150" height="50" width="70" y="-260"/>
+        <node color="#fcfcfc" id="n33" type="role">
+          <geometry y="-260" x="150" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#isManagementFor</iri>
-          <label size="12" customSize="0" x="150" height="23" width="105" y="-290"/>
+          <label customSize="0" y="-290" x="150" height="23" width="105" size="12"/>
         </node>
-        <node id="n34" color="#fcfcfc" type="role">
-          <geometry x="-70" height="50" width="70" y="-260"/>
+        <node color="#fcfcfc" id="n34" type="role">
+          <geometry y="-260" x="-70" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#isManagedBy</iri>
-          <label size="12" customSize="0" x="-70" height="23" width="80" y="-290"/>
+          <label customSize="0" y="-290" x="-70" height="23" width="80" size="12"/>
         </node>
-        <node id="n35" color="#fcfcfc" type="role-inverse">
-          <geometry x="40" height="30" width="50" y="-260"/>
-          <label size="12" customSize="0" x="40" height="23" width="23" y="-260"/>
+        <node color="#fcfcfc" id="n35" type="role-inverse">
+          <geometry y="-260" x="40" height="30" width="50"/>
+          <label customSize="0" y="-260" x="40" height="23" width="23" size="12"/>
         </node>
-        <node id="n36" color="#fcfcfc" type="role">
-          <geometry x="150" height="50" width="70" y="-160"/>
+        <node color="#fcfcfc" id="n36" type="role">
+          <geometry y="-160" x="150" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#isLayoutFor</iri>
-          <label size="12" customSize="0" x="150" height="23" width="70" y="-190"/>
+          <label customSize="0" y="-190" x="150" height="23" width="70" size="12"/>
         </node>
-        <node id="n37" color="#fcfcfc" type="role-inverse">
-          <geometry x="40" height="30" width="50" y="-160"/>
-          <label size="12" customSize="0" x="40" height="23" width="23" y="-160"/>
+        <node color="#fcfcfc" id="n37" type="role-inverse">
+          <geometry y="-160" x="40" height="30" width="50"/>
+          <label customSize="0" y="-160" x="40" height="23" width="23" size="12"/>
         </node>
-        <node id="n39" color="#fcfcfc" type="role">
-          <geometry x="-70" height="50" width="70" y="-160"/>
+        <node color="#fcfcfc" id="n39" type="role">
+          <geometry y="-160" x="-70" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#hasLayout</iri>
-          <label size="12" customSize="0" x="-70" height="23" width="63" y="-190"/>
+          <label customSize="0" y="-190" x="-70" height="23" width="63" size="12"/>
         </node>
-        <node id="n4" color="#fcfcfc" type="role">
-          <geometry x="-1124" height="50" width="70" y="-150"/>
+        <node color="#fcfcfc" id="n4" type="role">
+          <geometry y="-150" x="-1124" height="50" width="70"/>
           <iri>https://cdm.ovh/rsm/network/netw#hasSubNetwork</iri>
-          <label size="12" customSize="0" x="-1124" height="23" width="92" y="-180"/>
+          <label customSize="0" y="-180" x="-1124" height="23" width="92" size="12"/>
         </node>
-        <node id="n6" color="#fcfcfc" type="role-inverse">
-          <geometry x="-1030" height="30" width="50" y="-150"/>
-          <label size="12" customSize="0" x="-1030" height="23" width="23" y="-150"/>
+        <node color="#fcfcfc" id="n6" type="role-inverse">
+          <geometry y="-150" x="-1030" height="30" width="50"/>
+          <label customSize="0" y="-150" x="-1030" height="23" width="23" size="12"/>
         </node>
-        <node id="n7" color="#fcfcfc" type="role">
-          <geometry x="-920" height="50" width="70" y="-420"/>
-          <iri>https://cdm.ovh/rsm/network/netw#hasTopology</iri>
-          <label size="12" customSize="0" x="-920" height="23" width="76" y="-450"/>
+        <node color="#fcfcfc" id="n7" type="role">
+          <geometry y="-420" x="-920" height="50" width="70"/>
+          <iri>https://cdm.ovh/rsm/network/netw#satisfiesTopology</iri>
+          <label customSize="0" y="-450" x="-920" height="23" width="102" size="12"/>
         </node>
-        <node id="n8" color="#fcfcfc" type="domain-restriction">
-          <geometry x="-1000" height="20" width="20" y="-420"/>
-          <label size="12" customSize="0" x="-1000" height="23" width="39" y="-442">exists</label>
+        <node color="#fcfcfc" id="n8" type="domain-restriction">
+          <geometry y="-420" x="-1000" height="20" width="20"/>
+          <label customSize="0" y="-442" x="-1000" height="23" width="39" size="12">exists</label>
         </node>
-        <node id="n9" color="#000000" type="range-restriction">
-          <geometry x="-840" height="20" width="20" y="-420"/>
-          <label size="12" customSize="0" x="-840" height="23" width="39" y="-442">exists</label>
+        <node color="#000000" id="n9" type="range-restriction">
+          <geometry y="-420" x="-840" height="20" width="20"/>
+          <label customSize="0" y="-442" x="-840" height="23" width="39" size="12">exists</label>
         </node>
-        <edge id="e18" type="input" target="n21" source="n22">
-          <point x="-1120" y="-240"/>
-          <point x="-1030" y="-240"/>
+        <edge source="n22" target="n21" id="e18" type="input">
+          <point y="-240" x="-1120"/>
+          <point y="-240" x="-1030"/>
         </edge>
-        <edge id="e2" type="equivalence" target="n2" source="n6">
-          <point x="-1030" y="-150"/>
-          <point x="-930" y="-150"/>
+        <edge source="n6" target="n2" id="e2" type="equivalence">
+          <point y="-150" x="-1030"/>
+          <point y="-150" x="-930"/>
         </edge>
-        <edge id="e20" type="equivalence" target="n23" source="n21">
-          <point x="-1030" y="-240"/>
-          <point x="-930" y="-240"/>
+        <edge source="n21" target="n23" id="e20" type="equivalence">
+          <point y="-240" x="-1030"/>
+          <point y="-240" x="-930"/>
         </edge>
-        <edge id="e31" type="inclusion" target="n32" source="n22">
-          <point x="-1120" y="-240"/>
-          <point x="-1120" y="-330"/>
+        <edge source="n22" target="n32" id="e31" type="inclusion">
+          <point y="-240" x="-1120"/>
+          <point y="-330" x="-1120"/>
         </edge>
-        <edge id="e32" type="equivalence" target="n35" source="n34">
-          <point x="-70" y="-260"/>
-          <point x="40" y="-260"/>
+        <edge source="n34" target="n35" id="e32" type="equivalence">
+          <point y="-260" x="-70"/>
+          <point y="-260" x="40"/>
         </edge>
-        <edge id="e33" type="input" target="n35" source="n33">
-          <point x="150" y="-260"/>
-          <point x="40" y="-260"/>
+        <edge source="n33" target="n35" id="e33" type="input">
+          <point y="-260" x="150"/>
+          <point y="-260" x="40"/>
         </edge>
-        <edge id="e34" type="input" target="n37" source="n36">
-          <point x="150" y="-160"/>
-          <point x="40" y="-160"/>
+        <edge source="n36" target="n37" id="e34" type="input">
+          <point y="-160" x="150"/>
+          <point y="-160" x="40"/>
         </edge>
-        <edge id="e35" type="equivalence" target="n37" source="n39">
-          <point x="-70" y="-160"/>
-          <point x="40" y="-160"/>
+        <edge source="n39" target="n37" id="e35" type="equivalence">
+          <point y="-160" x="-70"/>
+          <point y="-160" x="40"/>
         </edge>
-        <edge id="e5" type="input" target="n6" source="n4">
-          <point x="-1124" y="-150"/>
-          <point x="-1030" y="-150"/>
+        <edge source="n4" target="n6" id="e5" type="input">
+          <point y="-150" x="-1124"/>
+          <point y="-150" x="-1030"/>
         </edge>
-        <edge id="e6" type="input" target="n8" source="n7">
-          <point x="-920" y="-420"/>
-          <point x="-1000" y="-420"/>
+        <edge source="n7" target="n8" id="e6" type="input">
+          <point y="-420" x="-920"/>
+          <point y="-420" x="-1000"/>
         </edge>
-        <edge id="e7" type="input" target="n9" source="n7">
-          <point x="-920" y="-420"/>
-          <point x="-840" y="-420"/>
+        <edge source="n7" target="n9" id="e7" type="input">
+          <point y="-420" x="-920"/>
+          <point y="-420" x="-840"/>
         </edge>
-        <edge id="e8" type="inclusion" target="n10" source="n9">
-          <point x="-840" y="-420"/>
-          <point x="-740" y="-420"/>
+        <edge source="n9" target="n10" id="e8" type="inclusion">
+          <point y="-420" x="-840"/>
+          <point y="-420" x="-740"/>
         </edge>
-        <edge id="e9" type="inclusion" target="n11" source="n8">
-          <point x="-1000" y="-420"/>
-          <point x="-1100" y="-420"/>
+        <edge source="n8" target="n11" id="e9" type="inclusion">
+          <point y="-420" x="-1000"/>
+          <point y="-420" x="-1100"/>
         </edge>
       </diagram>
     </diagrams>
